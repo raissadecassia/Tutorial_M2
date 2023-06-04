@@ -54,7 +54,7 @@
           experienciasContainer.toggleClass('hidden'); // Alterna a classe 'hidden' para exibir ou ocultar o elemento
           // Atualiza o texto do botão com base na visibilidade do elemento
           if (experienciasContainer.hasClass('hidden')) {
-            button.text('Mostrar informações');
+            button.text('Mostrar informações sobre experiências');
           } else {
             button.text('Ocultar informações');
           }
@@ -80,7 +80,7 @@
             bolsasContainer.toggleClass('hidden'); // Alterna a classe 'hidden' para exibir ou ocultar o elemento
              // Atualiza o texto do botão com base na visibilidade do elemento
             if (bolsasContainer.hasClass('hidden')) {
-              button.text('Mostrar informações');
+              button.text('Mostrar informações sobre bolsas');
             } else {
               button.text('Ocultar informações');
             }
