@@ -114,3 +114,7 @@ a:hover {
 a:active {
   color: rgb(162, 12, 237); /* Cor do link quando ele está sendo clicado */
 }
+
+.hidden {
+  display: none;
+}

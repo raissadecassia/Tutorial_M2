@@ -17,6 +17,7 @@
     });
   });
   
+  
   $(document).ready(function() {
     function generateSummary() {
       var summary = $('<ul>'); // Cria um elemento <ul> para o sumário
@@ -41,3 +42,53 @@
     generateSummary();
   });
   
+  //carrega informações de experiencias profissionais
+  $(document).ready(function() {
+    $('#load-experiencias-button').click(function() {
+      const xhr = new XMLHttpRequest();
+      const experienciasContainer = $('#experiencias');
+      const button = $(this); // Seleciona o botão
+      xhr.onload = function(){
+        if (this.status === 200){
+          experienciasContainer.html(xhr.responseText);
+          experienciasContainer.toggleClass('hidden'); // Alterna a classe 'hidden' para exibir ou ocultar o elemento
+          // Atualiza o texto do botão com base na visibilidade do elemento
+          if (experienciasContainer.hasClass('hidden')) {
+            button.text('Mostrar informações sobre experiências');
+          } else {
+            button.text('Ocultar informações');
+          }
+        } else {
+          console.warn('Did not receive 200 OK from response');
+        }
+      };
+      xhr.open('GET', 'experiencias.html');
+      xhr.send();
+      });
+    });
+
+    //carrega informação sobre bolsas
+    $(document).ready(function() {
+      $('#load-bolsas-button').click(function() {
+        const xhr = new XMLHttpRequest();
+        const bolsasContainer = $('#bolsas');
+        const button = $(this); // Seleciona o botão
+
+        xhr.onload = function(){
+          if (this.status === 200){
+            bolsasContainer.html(xhr.responseText);
+            bolsasContainer.toggleClass('hidden'); // Alterna a classe 'hidden' para exibir ou ocultar o elemento
+             // Atualiza o texto do botão com base na visibilidade do elemento
+            if (bolsasContainer.hasClass('hidden')) {
+              button.text('Mostrar informações sobre bolsas');
+            } else {
+              button.text('Ocultar informações');
+            }
+          } else {
+            console.warn('Did not receive 200 OK from response');
+          }
+        };
+        xhr.open('GET', 'bolsas.html');
+        xhr.send();
+        });
+      });
